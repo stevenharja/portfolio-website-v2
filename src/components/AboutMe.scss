@@ -1,0 +1,139 @@
+.about-me {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:before {
+        content: url("../../public/icons/lightbulb.svg");
+        transform: scale(0.125) rotate(21deg);
+        position: absolute;
+        top: -126%;
+        right: -32%;
+    }
+}
+
+.appear-from-top {
+    animation: appearFromTop .8s ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    &--1 {
+        animation-delay: 0;
+    }
+    &--2 {
+        animation-delay: .8s;
+    }
+    &--3 {
+        animation-delay: 1.6s;
+    }
+}
+
+.experience { 
+    &__header {
+        font-weight: 300;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        margin-top: 10px;
+    }
+}
+
+.experience-summary {
+    padding: 110px 0 50px 0;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.experience-list {
+    &__item {
+        border-bottom: 1px solid grey;
+    }
+
+    &__item-header {
+        font-family: 'Forum';
+        font-size: 3rem;
+    }
+
+    &__item-logos {
+
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    &__item-list {
+        padding: 0;
+        & li {
+            list-style: none;
+            border-left: 2px solid #fff;
+            padding-left: 5px;
+            margin-bottom: 10px;
+        }
+
+        &__span {
+            &--main {
+                font-weight: 300;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+            }
+
+            &--sub {
+                margin-left: 10px;
+                font-weight: 300;
+            }
+        }
+    }
+
+    &__item-skill {
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid $secondary-color;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        &:hover {
+            color: $primary-color;
+            background: $secondary-color;
+        }
+        &__title {
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        &--active {
+            color: $primary-color;
+            background: $secondary-color;
+        }
+    }
+
+    &__item-skill-list {
+        animation: appear 0.6s ease forwards;
+        padding: 0;
+        margin: 0;
+        & li {
+            display: inline-block;
+            padding: 10px;
+            list-style: none;
+            font-size: 3rem;
+            position: relative;
+            /* Set a fixed width and height for the popup */
+            &:hover::before {
+                content: attr(data-message);
+                position: absolute;
+                top: 80%;
+                left: 50%;
+                transform: translate(-50%);
+                background-color: #000102;
+                font-size: 0.85rem;
+                font-weight: 300;
+                text-align: center;
+            }
+        }
+    }
+
+    &__item-detail {
+        text-align: justify;
+    }
+}
+  
+  

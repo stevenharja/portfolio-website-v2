@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Homepage from './components/Homepage.component';
+import AboutMe from './components/AboutMe.component';
+import NavigationMenu from './components/NavigationMenu.component';
+import NotFound from './components/NotFound.component';
+
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { TransitionGroup, Transition } from 'react-transition-group';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="container app">
+        <Routes>
+          <Route exact 
+             path="/"
+             element={<Homepage homeButton={<NavigationMenu />} />}
+           />
+          <Route exact 
+             path="/about"
+             element={<AboutMe homeButton={<NavigationMenu />} />}
+           />
+          <Route path="/*" element={<NotFound homeButton={<NavigationMenu />}/>}/>
+         </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

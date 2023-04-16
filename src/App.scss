@@ -1,0 +1,169 @@
+#root {
+    background-color: $primary-color;
+    color: $secondary-color;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+  
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: $secondary-color; }
+}
+
+@keyframes appearFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-10rem);
+    }
+
+    80% {
+        transform: translateY(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero {
+    &__content {
+        z-index: 1000;
+    }
+    
+    &__heading {
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 6px;
+        font-size: 1.25rem;
+    }
+
+    &__subheading {
+        font-family: 'Forum';
+        font-size: 3.5rem;
+    }
+
+    &__subheading--animated {
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .1em solid $secondary-color; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        animation: 
+            typing 3s steps(19, end),
+            blink-caret .5s step-end infinite;
+    }
+
+    &__link {
+        color: $secondary-color;
+        text-transform: uppercase;
+        letter-spacing: 6px;
+        font-weight: 100;
+        text-decoration: none;
+        background-image: linear-gradient(140deg, transparent 0%, transparent 50%, $secondary-color 50%);
+        background-size: 250%;
+        padding: 5px;
+        transition: all 0.3s;
+        &:hover, &:active {
+            background-position: 100%;
+            color: $primary-color;
+        }
+    }
+}
+
+.circle-loop {
+    position: absolute;
+    width: 70vh;
+    height: 70vh;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease;
+    z-index: 1000;
+
+    &:hover {
+        transform: scale(1.04);
+    }
+
+    &__outer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 70vh;
+        height: 70vh;
+        border-radius: 50%;
+        border: 1px solid $secondary-color;
+        &--initial {
+            animation: show-circle 3s ease-in-out normal;
+        }
+    }
+    &__inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: $secondary-color;
+        animation: circle-animation 12s linear infinite;
+        &--alt {
+            animation: circle-animation-alt 8s linear infinite;
+        }
+        &--initial {
+            animation: circle-animation 12s linear infinite, show-circle 3s ease-in-out normal;
+        }
+
+        &--initial-alt {
+            animation: circle-animation-alt 8s linear infinite, show-circle 3s ease-in-out normal;
+        }
+    }
+
+    @keyframes show-circle {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes circle-animation {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg) translate(35vh) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg) translate(35vh) rotate(-360deg);
+        }
+    }
+
+    @keyframes circle-animation-alt {
+        0% {
+          transform: translate(-50%, -50%) rotate(360deg) translate(35vh) rotate(0);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(0deg) translate(35vh) rotate(-360deg);
+        }
+    }
+}
+
+.detail-modal {
+    display: none;
+    opacity: 0;
+    position: absolute;
+}
+
+.detail-modal--display {
+    display: block;
+    opacity: 1;
+}
