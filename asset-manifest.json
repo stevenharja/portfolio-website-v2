@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/portfolio-website-v2/static/css/main.a0efa084.css",
+    "main.js": "/portfolio-website-v2/static/js/main.9b16e3f7.js",
+    "static/media/Forum-Regular.ttf": "/portfolio-website-v2/static/media/Forum-Regular.6b8e836eb36b2f54db9a.ttf",
+    "static/media/lightbulb.svg": "/portfolio-website-v2/static/media/lightbulb.46ac2051cae74bde09af.svg",
+    "index.html": "/portfolio-website-v2/index.html",
+    "main.a0efa084.css.map": "/portfolio-website-v2/static/css/main.a0efa084.css.map",
+    "main.9b16e3f7.js.map": "/portfolio-website-v2/static/js/main.9b16e3f7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0efa084.css",
+    "static/js/main.9b16e3f7.js"
+  ]
+}
